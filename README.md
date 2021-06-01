@@ -1,5 +1,5 @@
 <h1 align="center">
-<img height="130" src="https://user-images.githubusercontent.com/20145075/127218526-44b107db-92b9-4a47-86a3-132b4c1e45d1.png" alt="OneDark.nvim">
+<img height="120" src="https://user-images.githubusercontent.com/20145075/119054213-e1635e80-b9e4-11eb-8a8a-b228c185121a.png" alt="OneDark.nvim">
 </h1>
 
 <h4>
@@ -16,11 +16,9 @@
 
 A Dark Theme for neovim >= 0.5 based on [Atom One Dark Theme](https://github.com/atom/atom/tree/master/packages/one-dark-ui) written in lua with [TreeSitter](https://github.com/nvim-treesitter/nvim-treesitter) syntax highlight. Additionally, it comes with 5 more color variant styles
 
-For Vim / Neovim < 0.5, prefer [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
-
 ## Features
   * 6 styles (default one dark + 5 color variants)
-  * Changing the style without exiting Neovim (using shortcut key `<leader>cs`. If you want to disable this mapping see [configuration](#to-disable-toggle-style-using-shortcut))
+  * Changing the style without exiting Neovim (using shortcut key `<leader>cs` )
   * Supported mulitple plugins with hand picked proper colors
 
 ### Plugins Supported
