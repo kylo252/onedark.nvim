@@ -35,10 +35,11 @@ local colors = {
     Blue = {fg = c.blue},
     Purple = {fg = c.purple}
 }
+
 hl.common = {
     Normal = {fg = c.fg, bg = cfg.bg and c.none or c.bg0},
     Terminal = {fg = c.fg, bg = cfg.bg and c.none or c.bg0},
-    EndOfBuffer = {fg = c.bg2, bg = cfg.bg and c.none or c.bg0},
+    EndOfBuffer = {fg = cfg.hide_ending_tildes and (cfg.bg and c.none or c.bg0) or c.bg2, bg = cfg.bg and c.none or c.bg0},
     FoldColumn = {fg = c.fg, bg = cfg.bg and c.none or c.bg1},
     Folded = {fg = c.fg, bg = cfg.bg and c.none or c.bg1},
     SignColumn = {fg = c.fg, bg = cfg.bg and c.none or c.bg0},
@@ -140,12 +141,12 @@ hl.treesitter = {
     TSAttribute = colors.Cyan,
     TSBoolean = colors.Orange,
     TSCharacter = colors.Fg,
-    TSComment = colors.Grey,
+    TSComment = {fg = c.grey, italic = cfg.italic_comment},
     TSConditional = colors.Purple,
     TSConstant = colors.Red,
     TSConstBuiltin = colors.Red,
     TSConstMacro = colors.Red,
-    TSConstructor = colors.Yellow,
+    TSConstructor = {fg = c.yellow, bold = true},
     TSError = colors.Fg,
     TSException = colors.Purple,
     TSField = colors.Cyan,
@@ -155,7 +156,7 @@ hl.treesitter = {
     TSFuncMacro = colors.Orange,
     TSInclude = colors.Red,
     TSKeyword = colors.Red,
-    TSKeywordFunction = colors.Red,
+    TSKeywordFunction = {fg = c.red, bold = true},
     TSKeywordOperator = colors.Red,
     TSLabel = colors.Blue,
     TSMethod = colors.Blue,
@@ -248,20 +249,8 @@ hl.plugins.whichkey = {
     WhichKey = colors.Red,
     WhichKeyDesc = colors.Blue,
     WhichKeyGroup = colors.Orange,
-    WhichKeySeperator = colors.Green
-}
-
-hl.plugins.gitgutter = {
-    GitGutterAdd = {fg = c.green},
-    GitGutterChange = {fg = c.blue},
-    GitGutterDelete = {fg = c.red},
-}
-
-hl.plugins.hop = {
-    HopNextKey = {fg = c.bg0, bg = c.orange},
-    HopNextKey1 = {fg = c.bg0, bg = c.orange},
-    HopNextKey2 = {fg = c.bg0, bg = c.bg_yellow},
-    HopUnmatched = {fg = c.fg, bg = c.bg1},
+    WhichKeySeperator = colors.Green,
+    WhichKeyFloat = { bg = c.bg0},
 }
 
 hl.plugins.diffview = {
@@ -305,7 +294,7 @@ hl.plugins.gitsigns = {
 
 hl.plugins.nvim_tree = {
     NvimTreeNormal = { fg = c.fg, bg = c.bg_d },
-    NvimTreeEndOfBuffer = { fg = c.bg2, bg = c.bg_d },
+    NvimTreeEndOfBuffer = { fg = cfg.hide_ending_tildes and c.bg_d or c.bg2, bg = c.bg_d },
     NvimTreeRootFolder = { fg = c.green, bold =true},
     NvimTreeGitDirty = colors.Yellow,
     NvimTreeGitNew = colors.Green,
@@ -316,6 +305,7 @@ hl.plugins.nvim_tree = {
     NvimTreeSymlink = colors.Purple,
     NvimTreeFolderName= colors.Blue
 }
+
 hl.plugins.telescope = {
     TelescopeBorder = colors.Green,
     TelescopePromptBorder = colors.Green,
@@ -332,6 +322,17 @@ hl.plugins.dashboard = {
     DashboardHeader = colors.Green,
     DashboardCenter = colors.Blue,
     DashboardFooter = { fg = c.cyan, italic = true}
+}
+
+hl.plugins.cmp = {
+    CmpDocumentation = colors.Fg,
+    CmpDocumentationBorder = colors.LightGrey,
+    CmpItemAbbr = colors.Fg,
+    CmpItemAbbrDeprecated = colors.Grey,
+    CmpItemAbbrMatch = colors.Yellow,
+    CmpItemAbbrMatchFuzzy = colors.Yellow,
+    CmpItemKind = colors.Blue,
+    CmpItemMenu = colors.Blue,
 }
 
 hl.langs.markdown = {
@@ -362,32 +363,6 @@ hl.langs.markdown = {
     markdownUrl = {fg = c.blue, underline = true},
     markdownUrlDelimiter = colors.Grey,
     markdownUrlTitleDelimiter = colors.Green
-}
-
-hl.langs.php = {
-    phpFunctions = colors.Fg,
-    phpMethods = colors.Cyan,
-    phpStructure = colors.Purple,
-    phpOperator = colors.Purple,
-    phpMemberSelector = colors.Fg,
-    phpVarSelector = colors.Orange,
-    phpIdentifier = colors.Orange,
-    phpBoolean = colors.Cyan,
-    phpNumber = colors.Orange,
-    phpHereDoc = colors.Green,
-    phpNowDoc = colors.Green,
-    phpSCKeyword = colors.Purple,
-    phpFCKeyword = colors.Purple,
-    phpRegion = colors.Blue
-}
-
-hl.langs.scala = {
-    scalaNameDefinition = colors.Fg,
-    scalaInterpolationBoundary = colors.Purple,
-    scalaInterpolation = colors.Purple,
-    scalaTypeOperator = colors.Red,
-    scalaOperator = colors.Red,
-    scalaKeywordModifier = colors.Red
 }
 
 hl.langs.vim = {
