@@ -74,6 +74,8 @@ hl.common = {
     Whitespace = {fg = c.grey},
     SpecialKey = {fg = c.grey},
     Pmenu = {fg = c.fg, bg = c.bg1},
+    FloatMenu = {fg = c.fg, bg = c.bg1},
+    FloatMenuBorder = {fg = c.bg2},
     PmenuSbar = {fg = c.none, bg = c.bg1},
     PmenuSel = {fg = c.bg0, bg = c.bg_blue},
     WildMenu = {fg = c.bg0, bg = c.blue},
@@ -250,7 +252,7 @@ hl.plugins.whichkey = {
     WhichKeyDesc = colors.Blue,
     WhichKeyGroup = colors.Orange,
     WhichKeySeperator = colors.Green,
-    WhichKeyFloat = { bg = c.bg0},
+    WhichKeyFloat = hl.common.FloatMenu,
 }
 
 hl.plugins.diffview = {
@@ -325,14 +327,14 @@ hl.plugins.dashboard = {
 }
 
 hl.plugins.cmp = {
-    CmpDocumentation = colors.Fg,
-    CmpDocumentationBorder = colors.LightGrey,
+    CmpDocumentation = hl.common.FloatMenu,
+    CmpDocumentationBorder = hl.common.FloatMenuBorder,
     CmpItemAbbr = colors.Fg,
-    CmpItemAbbrDeprecated = colors.Grey,
+    CmpItemAbbrDeprecated = colors.Red,
     CmpItemAbbrMatch = colors.Yellow,
     CmpItemAbbrMatchFuzzy = colors.Yellow,
     CmpItemKind = colors.Blue,
-    CmpItemMenu = colors.Blue,
+    CmpItemMenu = colors.Grey,
 }
 
 hl.langs.markdown = {
