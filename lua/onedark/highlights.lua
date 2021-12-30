@@ -169,9 +169,9 @@ hl.treesitter = {
     TSParameter = colors.Orange,
     TSParameterReference = colors.Orange,
     TSProperty = colors.Blue,
-    TSPunctDelimiter = colors.Fg,
-    TSPunctBracket = colors.Fg,
-    TSPunctSpecial = colors.Fg,
+    TSPunctDelimiter = colors.LightGrey,
+    TSPunctBracket = colors.LightGrey,
+    TSPunctSpecial = colors.LightGrey,
     TSRepeat = colors.Purple,
     TSString = colors.Yellow,
     TSStringRegex = colors.Orange,
@@ -184,11 +184,11 @@ hl.treesitter = {
     TSEmphasis = colors.Fg,
     TSUnderline = colors.Fg,
     TSStrike = colors.Fg,
-    TSTitle = colors.Fg,
+    TSTitle = colors.Red,
     TSLiteral = colors.Green,
-    TSURI = colors.Fg,
+    TSURI = colors.Orange,
     TSMath = colors.Fg,
-    TSTextReference = colors.Fg,
+    TSTextReference = colors.Blue,
     TSEnviroment = colors.Fg,
     TSEnviromentName = colors.Fg,
     TSNote = colors.Fg,
@@ -319,13 +319,6 @@ hl.plugins.telescope = {
     TelescopeSelectionCaret = colors.Blue
 }
 
-hl.plugins.dashboard = {
-    DashboardShortCut = colors.Yellow,
-    DashboardHeader = colors.Green,
-    DashboardCenter = colors.Blue,
-    DashboardFooter = { fg = c.cyan, italic = true}
-}
-
 hl.plugins.cmp = {
     CmpDocumentation = hl.common.FloatMenu,
     CmpDocumentationBorder = hl.common.FloatMenuBorder,
@@ -335,62 +328,15 @@ hl.plugins.cmp = {
     CmpItemAbbrMatchFuzzy = colors.Yellow,
     CmpItemKind = colors.Blue,
     CmpItemMenu = colors.Grey,
-}
-
-hl.langs.markdown = {
-    markdownBlockquote = colors.Grey,
-    markdownBold = {fg = c.none, bold = true},
-    markdownBoldDelimiter = colors.Grey,
-    markdownCode = colors.Yellow,
-    markdownCodeBlock = colors.Yellow,
-    markdownCodeDelimiter = colors.Green,
-    markdownH1 = {fg = c.red, bold = true},
-    markdownH2 = {fg = c.red, bold = true},
-    markdownH3 = {fg = c.red, bold = true},
-    markdownH4 = {fg = c.red, bold = true},
-    markdownH5 = {fg = c.red, bold = true},
-    markdownH6 = {fg = c.red, bold = true},
-    markdownHeadingDelimiter = colors.Grey,
-    markdownHeadingRule = colors.Grey,
-    markdownId = colors.Yellow,
-    markdownIdDeclaration = colors.Red,
-    markdownItalic = {fg = c.none, italic = true},
-    markdownItalicDelimiter = {fg = c.grey, italic = true},
-    markdownLinkDelimiter = colors.Grey,
-    markdownLinkText = colors.Red,
-    markdownLinkTextDelimiter = colors.Grey,
-    markdownListMarker = colors.Red,
-    markdownOrderedListMarker = colors.Red,
-    markdownRule = colors.Purple,
-    markdownUrl = {fg = c.blue, underline = true},
-    markdownUrlDelimiter = colors.Grey,
-    markdownUrlTitleDelimiter = colors.Green
-}
-
-hl.langs.vim = {
-    vimCommentTitle = {fg = c.light_grey, bold = true},
-    vimLet = colors.Purple,
-    vimFunction = colors.Blue,
-    vimIsCommand = colors.Fg,
-    vimUserFunc = colors.Blue,
-    vimFuncName = colors.Blue,
-    vimMap = colors.Purple,
-    vimMapModKey = colors.Red,
-    vimNotation = colors.Red,
-    vimMapLhs = colors.Blue,
-    vimMapRhs = colors.Blue,
-    vimOption = colors.Cyan,
-    vimUserAttrbKey = colors.Red,
-    vimUserAttrb = colors.Blue,
-    vimSynType = colors.Cyan,
-    vimHiBang = colors.Purple,
-    vimSet = colors.Yellow,
-    vimSetEqual = colors.Yellow,
-    vimSetSep = colors.LightGrey,
-    vimVar = colors.Fg,
-    vimFuncVar = colors.Fg,
-    vimContinue = colors.Grey,
-    vimAutoCmdSfxList = colors.Cyan,
+    CmpItemKindClass = hl.treesitter.TSNamespace,
+    CmpItemKindFile = colors.Yellow,
+    CmpItemKindFolder = colors.Blue,
+    CmpItemKindFunction = hl.treesitter.TSFunction,
+    CmpItemKindKeyword = hl.treesitter.TSKeyword,
+    CmpItemKindMethod = hl.treesitter.TSMethod,
+    CmpItemKindReference = hl.treesitter.TSParameterReference,
+    CmpItemKindSnippet = colors.Purple,
+    CmpItemKindVariable = hl.treesitter.TSVariable,
 }
 
 function M.setup()
