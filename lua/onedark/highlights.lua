@@ -255,6 +255,24 @@ hl.plugins.whichkey = {
     WhichKeyFloat = hl.common.FloatMenu,
 }
 
+hl.plugins.lightspeed = {
+    LightspeedLabel = { fg = c.fg, style = "bold" },
+    LightspeedLabelOverlapped = { fg = c.fg, style = "bold,underline" },
+    LightspeedLabelDistant = { fg = c.cyan, style = "bold" },
+    LightspeedLabelDistantOverlapped = { fg = c.cyan, style = "bold,underline" },
+    LightspeedShortcut = { fg = c.purple, style = "bold" },
+    LightspeedShortcutOverlapped = { fg = c.purple, style = "bold,underline" },
+    LightspeedMaskedChar = { fg = c.blue },
+    LightspeedGreyWash = { fg = c.grey},
+    LightspeedUnlabeledMatch = { fg = c.lightGrey },
+    LightspeedOneCharMatch = { fg = c.fg, style = "bold,reverse" },
+    LightspeedUniqueChar = { fg = c.green, style = "bold,underline" },
+    -- LightspeedPendingOpArea = { style = "strikethrough" },
+    -- LightspeedPendingChangeOpArea = { style = "strikethrough" },
+    -- LightspeedCursor = { fg = colors.nord7_gui, style = "underline,reverse" },
+    --
+}
+
 hl.plugins.diffview = {
     DiffviewFilePanelTitle = {fg = c.blue, bold = true},
     DiffviewFilePanelCounter = {fg = c.purple, bold = true},
