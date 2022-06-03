@@ -272,6 +272,8 @@ hl.plugins.cmp = {
     CmpItemAbbrMatchFuzzy = { fg = c.cyan, fmt = "underline" },
     CmpItemMenu = colors.LightGrey,
     CmpItemKind = { fg = c.purple, fmt = cfg.cmp_itemkind_reverse and "reverse" },
+    CmpDocumentation = hl.common.FloatMenu,
+    CmpDocumentationBorder = hl.common.FloatMenuBorder,
 }
 
 hl.plugins.coc = {
@@ -358,14 +360,14 @@ hl.plugins.nvim_tree = {
 }
 
 hl.plugins.telescope = {
-    TelescopeBorder = colors.Red,
-    TelescopePromptBorder = colors.Cyan,
-    TelescopeResultsBorder = colors.Cyan,
-    TelescopePreviewBorder = colors.Cyan,
-    TelescopeMatching = { fg = c.orange, fmt = "bold" },
-    TelescopePromptPrefix = colors.Green,
+    TelescopeBorder = colors.Green,
+    TelescopePromptBorder = colors.Green,
+    TelescopeResultsBorder = colors.Green,
+    TelescopePreviewBorder = colors.Green,
+    TelescopeMatching = colors.Yellow,
+    TelescopePromptPrefix = colors.Blue,
     TelescopeSelection =  { bg =c.bg2 },
-    TelescopeSelectionCaret = colors.Yellow
+    TelescopeSelectionCaret = colors.Blue
 }
 
 hl.plugins.dashboard = {
@@ -496,6 +498,24 @@ hl.langs.vim = {
     vimMapRhs = colors.Blue,
     vimVar = {fg = c.fg, fmt = cfg.code_style.variables},
     vimCommentTitle = {fg = c.light_grey, fmt = cfg.code_style.comments},
+}
+
+hl.plugins.lightspeed = {
+    LightspeedLabel = { fg = c.fg, style = "bold" },
+    LightspeedLabelOverlapped = { fg = c.fg, style = "bold,underline" },
+    LightspeedLabelDistant = { fg = c.cyan, style = "bold" },
+    LightspeedLabelDistantOverlapped = { fg = c.cyan, style = "bold,underline" },
+    LightspeedShortcut = { fg = c.purple, style = "bold" },
+    LightspeedShortcutOverlapped = { fg = c.purple, style = "bold,underline" },
+    LightspeedMaskedChar = { fg = c.blue },
+    LightspeedGreyWash = { fg = c.grey},
+    LightspeedUnlabeledMatch = { fg = c.lightGrey },
+    LightspeedOneCharMatch = { fg = c.fg, style = "bold,reverse" },
+    LightspeedUniqueChar = { fg = c.green, style = "bold,underline" },
+    -- LightspeedPendingOpArea = { style = "strikethrough" },
+    -- LightspeedPendingChangeOpArea = { style = "strikethrough" },
+    -- LightspeedCursor = { fg = colors.nord7_gui, style = "underline,reverse" },
+    --
 }
 
 local lsp_kind_icons_color = {
