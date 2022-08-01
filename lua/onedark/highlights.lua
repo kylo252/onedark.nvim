@@ -357,6 +357,15 @@ hl.plugins.cmp = {
     CmpItemKindVariable = hl.treesitter.TSVariable,
 }
 
+hl.plugins.indent_blankline = {
+    IndentBlanklineIndent1 = { fg = c.fg, gui = "nocombine" },
+    IndentBlanklineIndent2 =  { fg = c.grey, gui = "nocombine" },
+    IndentBlanklineIndent3 =  { fg = c.dark_yellow, gui = "nocombine" },
+    IndentBlanklineIndent4 =  { fg = c.dark_red, gui = "nocombine" },
+    IndentBlanklineIndent5 =  { fg = c.dark_cyan, gui = "nocombine" },
+    IndentBlanklineIndent6 =  { fg = c.dark_blue, gui = "nocombine" },
+}
+
 function M.setup()
     vim_highlights(hl.common)
     vim_highlights(hl.syntax)
