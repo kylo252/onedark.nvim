@@ -1,5 +1,5 @@
 local M = {}
-vim.g.onedark_style = vim.g.onedark_style or 'dark'
+vim.g.onedark_style = vim.g.onedark_style or 'darker'
 local highlights = require('onedark.highlights')
 local terminal = require('onedark.terminal')
 
