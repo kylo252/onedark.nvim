@@ -1,27 +1,18 @@
 local c = require('onedark.colors')
-local cfg = require('onedark.config')
+local cfg = vim.g.onedark_config
 
 local M = {}
 local hl = {langs = {}, plugins = {}}
 
-local function gui(group_settings)
-   if group_settings.bold then return "bold"
-   elseif group_settings.underline then return "underline"
-   elseif group_settings.undercurl then return "undercurl"
-   elseif group_settings.italic then return "italic"
-   elseif group_settings.reverse then return "reverse"
-   else return "NONE" end
-end
-
 local function vim_highlights(highlights)
-  for group_name, group_settings in pairs(highlights) do
-    local fg = group_settings.fg and "guifg=" .. group_settings.fg or "guifg=NONE"
-    local bg = group_settings.bg and "guibg=" .. group_settings.bg or "guibg=NONE"
-    local sp = group_settings.sp and "guisp=" .. group_settings.sp or "guisp=NONE"
-    vim.cmd("highlight " .. group_name .. " ".."gui="..gui(group_settings).." "..fg .. " " .. bg .. " " .. sp)
-	end
+    for group_name, group_settings in pairs(highlights) do
+        vim.api.nvim_command(string.format("highlight %s guifg=%s guibg=%s guisp=%s gui=%s", group_name,
+            group_settings.fg or "none",
+            group_settings.bg or "none",
+            group_settings.sp or "none",
+            group_settings.fmt or "none"))
+    end
 end
-
 
 local colors = {
     Fg = {fg = c.fg},
@@ -375,6 +366,30 @@ function M.setup()
     vim_highlights(hl.treesitter)
     for _, group in pairs(hl.langs) do vim_highlights(group) end
     for _, group in pairs(hl.plugins) do vim_highlights(group) end
+
+    -- user defined highlights: vim_highlights function cannot be used because it sets an attribute to none if not specified
+    local function replace_color(prefix, color_name)
+        if not color_name then return "" end
+        if color_name:sub(1, 1) == '$' then
+            local name = color_name:sub(2, -1)
+            color_name = c[name]
+            if not color_name then
+                vim.schedule(function()
+                    vim.notify('onedark.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "onedark.nvim" })
+                end)
+                return ""
+            end
+        end
+        return prefix .. "=" .. color_name
+    end
+
+    for group_name, group_settings in pairs(vim.g.onedark_config.highlights) do
+        vim.api.nvim_command(string.format("highlight %s %s %s %s %s", group_name,
+            replace_color("guifg", group_settings.fg),
+            replace_color("guibg", group_settings.bg),
+            replace_color("guisp", group_settings.sp),
+            replace_color("gui", group_settings.fmt)))
+    end
 end
 
 return M
