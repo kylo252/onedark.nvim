@@ -200,6 +200,19 @@ hl.treesitter = {
     ["@variable.builtin"] = colors.Red
 }
 
+hl.lsp_tokens = {
+    -- LSP Semantic Token Groups
+    ["@lsp.type.enum"] = hl.syntax.Type,
+    ["@lsp.type.keyword"] = hl.syntax.Keyword,
+    ["@lsp.type.interface"] = hl.syntax.Identifier,
+    ["@lsp.type.namespace"] = hl.treesitter["@namespace"],
+    ["@lsp.type.parameter"] = hl.treesitter["@parameter"],
+    ["@lsp.type.property"] = hl.treesitter["@property"],
+    ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+    ["@lsp.typemod.function.defaultLibrary"] = hl.syntax.Special,
+    ["@lsp.typemod.variable.defaultLibrary"] = hl.treesitter["@variable.builtin"]
+
+}
 hl.plugins.lsp = {
     LspCxxHlGroupEnumConstant = colors.Orange,
     LspCxxHlGroupMemberVariable = colors.Orange,
@@ -370,6 +383,7 @@ function M.setup()
     vim_highlights(hl.common)
     vim_highlights(hl.syntax)
     vim_highlights(hl.treesitter)
+    vim_highlights(hl.lsp_tokens)
     for _, group in pairs(hl.langs) do vim_highlights(group) end
     for _, group in pairs(hl.plugins) do vim_highlights(group) end
 
